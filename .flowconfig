@@ -1,0 +1,10 @@
+[ignore]
+.*node_modules/editions/source/index\.js
+.*node_modules/fbjs/lib/Deferred\.js\.flow
+.*node_modules/fbjs/lib/shallowEqual\.js\.flow
+
+[include]
+
+[libs]
+
+[options]
