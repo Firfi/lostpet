@@ -1,3 +1,5 @@
+/* @flow */
+
 import Koa from 'koa'
 import convert from 'koa-convert'
 import logger from 'koa-logger'

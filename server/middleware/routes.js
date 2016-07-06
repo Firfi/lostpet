@@ -1,6 +1,5 @@
 import ads from './controllers/ads';
 import route from 'koa-route';
-import convert from 'koa-convert'
 
 export default (app) => {
   app.use(route.get('/api/ads', ads.list));
