@@ -1,5 +1,6 @@
 import Koa from 'koa'
 import convert from 'koa-convert'
+import logger from 'koa-logger'
 import webpack from 'webpack'
 import webpackConfig from '../build/webpack.config'
 import historyApiFallback from 'koa-connect-history-api-fallback'
@@ -9,10 +10,16 @@ import _debug from 'debug'
 import config from '../config'
 import webpackDevMiddleware from './middleware/webpack-dev'
 import webpackHMRMiddleware from './middleware/webpack-hmr'
+import routes from './middleware/routes';
+import bodyParser from 'koa-bodyparser';
 
 const debug = _debug('app:server')
 const paths = config.utils_paths
 const app = new Koa()
+
+app.use(logger());
+app.use(bodyParser());
+routes(app);
 
 // Enable koa-proxy if it has been enabled in the config.
 if (config.proxy && config.proxy.enabled) {
